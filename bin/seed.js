@@ -3,7 +3,11 @@ const {db, Apartment, Broker} = require('../server/db')
 const seed = async () =>{
   await db.sync({force:true})
 
+  /*
 
+  there is no Broker model so i couldnt run npm run seed :( idk if this was supposed to be taken out LOL
+
+  */
   const Broker1 = await Broker.create({
     name: "Tom Green"
   })

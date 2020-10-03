@@ -51,10 +51,10 @@ const mapStateToProps = ({apartments}) =>{
   }
 }
 
-const mapDispatchToProps = (dispatch) =>{
+const mapDispatchToProps = (dispatch, { history }) =>{ // access to the history object so that when you create the apartment, it would automatically redirect back to the /apartments page
   return {
     addApartment: (apartment) => {
-      return dispatch(createApartment(apartment))
+      return dispatch(createApartment(apartment, history)) 
     }
   }
 }

@@ -45,11 +45,14 @@ router.delete('/api/apartments/:id', async(req, res, next) => {
   }
 })
 
+// ###################### fix for automatically updating the data
 router.put('/api/apartments/:id', async(req,res,next) => {
   try {
     const apartment = await Apartment.findByPk(req.params.id);
     await apartment.update(req.body)
-    res.send(apartment.data)
+
+    // send apartment (previously, it was apartment.data);
+    res.send(apartment)
   }
   catch(err){
     next(err)
